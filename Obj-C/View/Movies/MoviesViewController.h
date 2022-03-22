@@ -7,8 +7,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@class MoviesTableViewCell;
+@interface MoviesViewController : UIViewController
 
 @end
 
