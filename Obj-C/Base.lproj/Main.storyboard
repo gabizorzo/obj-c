@@ -12,7 +12,7 @@
         <!--Movies-->
         <scene sceneID="vVQ-iA-2kV">
             <objects>
-                <viewController title="Movies" id="uCo-wu-Lpr" customClass="MoviesViewController" customModule="Obj_C" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Movies" id="uCo-wu-Lpr" customClass="MoviesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8GV-c0-3bn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="188" id="BP9-wp-0Mr" customClass="MoviesTableViewCell" customModule="Obj_C" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="188" id="BP9-wp-0Mr" customClass="MoviesTableViewCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BP9-wp-0Mr" id="ilK-su-bnw">
@@ -104,7 +104,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="always" id="2vg-l5-Rwp"/>
                     <connections>
-                        <outlet property="moviesTableView" destination="ZfG-ts-R2l" id="Eq7-fA-dih"/>
+                        <outlet property="moviesTableView" destination="ZfG-ts-R2l" id="ont-Hz-JXI"/>
                         <segue destination="Nal-bT-EU4" kind="show" identifier="DetailNavigation" id="eVN-4T-bVL"/>
                     </connections>
                 </viewController>
@@ -115,7 +115,7 @@
         <!--Details-->
         <scene sceneID="DnK-dC-5dn">
             <objects>
-                <viewController id="Nal-bT-EU4" customClass="DetailsViewController" customModule="Obj_C" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nal-bT-EU4" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1aH-EM-omE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,8 +189,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="556-Al-c4f" userLabel="Details Label">
-                                                    <rect key="frame" x="20" y="283" width="374" height="50.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="556-Al-c4f" userLabel="Details Label">
+                                                    <rect key="frame" x="20" y="283" width="374" height="186"/>
                                                     <string key="text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -209,6 +209,7 @@
                                                 <constraint firstItem="tjU-9z-8UE" firstAttribute="top" secondItem="Vaq-bi-Cqj" secondAttribute="topMargin" id="hyw-iX-bfc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6ue-ot-RwX" secondAttribute="trailing" id="qGl-jI-JWg"/>
                                                 <constraint firstItem="6ue-ot-RwX" firstAttribute="leading" secondItem="tjU-9z-8UE" secondAttribute="trailing" constant="20" id="qQt-Q0-kSq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="556-Al-c4f" secondAttribute="bottom" id="vTb-mH-1fC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -232,6 +233,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Xk2-w3-vQm"/>
+                    <connections>
+                        <outlet property="detailsTableView" destination="dTd-9v-2MQ" id="6ke-cl-Z27"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPU-HN-ogZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

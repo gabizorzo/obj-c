@@ -6,9 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @class DetailsTableViewCell;
 @interface DetailsViewController : UIViewController
 
+@property Movie* movie;
 
 @end

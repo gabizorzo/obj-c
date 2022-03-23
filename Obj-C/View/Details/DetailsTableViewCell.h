@@ -6,10 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class Movie;
 @interface DetailsTableViewCell: UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *detailRatingsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailOverviewLabel;
 
--(void)populateCellWithMovie:(Movie*) movie;
+-(void)setMovie:(Movie*) movie;
 
 @end
 

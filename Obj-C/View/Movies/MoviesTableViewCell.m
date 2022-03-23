@@ -19,15 +19,11 @@
     [super setSelected:selected animated:animated];
 }
 
-- (void)populateCellWithMovie:(Movie *)movie {
+- (void)populateCellWithMovie:(Movie *) movie {
     [self.movieTitleLabel setText:movie.title];
     [self.movieOverviewLabel setText:movie.overview];
     
     NSMutableAttributedString* rating = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.1f",[movie.voteAverage doubleValue]]];
-    
-    NSTextAttachment* rating_symbol = [NSTextAttachment textAttachmentWithImage:[UIImage systemImageNamed:@"star"]];
-    NSAttributedString* rating_symbol_str = [NSAttributedString attributedStringWithAttachment:rating_symbol];
-    [rating replaceCharactersInRange:NSMakeRange(0, 0) withAttributedString:rating_symbol_str];
     
     [self.movieRatingLabel setAttributedText:rating];
     
