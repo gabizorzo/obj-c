@@ -23,16 +23,16 @@
     [self.movieTitleLabel setText:movie.title];
     [self.movieOverviewLabel setText:movie.overview];
     
-    NSMutableAttributedString* rating = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.1f",[movie.voteAverage doubleValue]]];
+    NSMutableAttributedString* rating = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%.1f",[movie.vote_average doubleValue]]];
     
     [self.movieRatingLabel setAttributedText:rating];
     
     if (movie.poster != nil) {
         [self.movieImageView setImage:[UIImage imageWithData:movie.poster]];
-    } else if ([movie.posterPath.absoluteString isEqualToString:@""]) {
+    } else if ([movie.poster_path.absoluteString isEqualToString:@""]) {
         [self.movieImageView setImage:[UIImage systemImageNamed:@"camera.fill"]];
     } else {
-        NSURLSessionDownloadTask* poster_download = [[NSURLSession sharedSession] downloadTaskWithURL:movie.posterPath completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSURLSessionDownloadTask* poster_download = [[NSURLSession sharedSession] downloadTaskWithURL:movie.poster_path completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             [movie setPoster:[NSData dataWithContentsOfURL:location]];
             UIImage* poster = [UIImage imageWithData:movie.poster];
             

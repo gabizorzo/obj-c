@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *overview;
 @property NSString *genres;
 @property NSNumber *popularity;
-@property NSNumber *voteAverage;
-@property NSURL *posterPath;
+@property NSNumber *vote_average;
+@property NSURL *poster_path;
 @property NSData *poster;
 
 @end

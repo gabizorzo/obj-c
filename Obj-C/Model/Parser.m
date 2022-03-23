@@ -31,7 +31,7 @@
         
         for (NSString *key in movieDict) {
             if ([movie respondsToSelector:NSSelectorFromString(key)]) {
-                if ([key isEqualToString:@"posterPath"]) {
+                if ([key isEqualToString:@"poster_path"]) {
                     if ([[movieDict valueForKey:key] isKindOfClass:[NSString class]]) {
                         NSString* pictureURL = [BASE_IMG_URL stringByAppendingString:[movieDict valueForKey:key]];
                         NSLog(@"--!-- PICTURE URL: %@", pictureURL);
