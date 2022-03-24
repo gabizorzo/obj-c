@@ -12,7 +12,7 @@
         <!--Movies-->
         <scene sceneID="vVQ-iA-2kV">
             <objects>
-                <viewController title="Movies" id="uCo-wu-Lpr" customClass="ViewController" customModule="Obj_C" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Movies" id="uCo-wu-Lpr" customClass="MoviesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8GV-c0-3bn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="188" id="BP9-wp-0Mr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="188" id="BP9-wp-0Mr" customClass="MoviesTableViewCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BP9-wp-0Mr" id="ilK-su-bnw">
@@ -83,6 +83,12 @@
                                                 <constraint firstItem="bG0-gJ-hmg" firstAttribute="centerY" secondItem="JwE-gX-5sL" secondAttribute="centerY" id="rc9-2W-ZXb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movieImageView" destination="JwE-gX-5sL" id="u0Z-pT-fFf"/>
+                                            <outlet property="movieOverviewLabel" destination="Td3-yb-ix4" id="YnI-uw-dww"/>
+                                            <outlet property="movieRatingLabel" destination="84t-70-l3N" id="Ki2-Ii-5hR"/>
+                                            <outlet property="movieTitleLabel" destination="5Xf-sb-gm0" id="feg-rO-Xyo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -98,7 +104,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="always" id="2vg-l5-Rwp"/>
                     <connections>
-                        <segue destination="Nal-bT-EU4" kind="show" id="eVN-4T-bVL"/>
+                        <outlet property="moviesTableView" destination="ZfG-ts-R2l" id="ont-Hz-JXI"/>
+                        <segue destination="Nal-bT-EU4" kind="show" identifier="DetailNavigation" id="eVN-4T-bVL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fHE-5B-Je7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -108,7 +115,7 @@
         <!--Details-->
         <scene sceneID="DnK-dC-5dn">
             <objects>
-                <viewController id="Nal-bT-EU4" sceneMemberID="viewController">
+                <viewController id="Nal-bT-EU4" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1aH-EM-omE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +124,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="480" id="0ZT-Zm-wkr">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" rowHeight="480" id="0ZT-Zm-wkr" customClass="DetailsTableViewCell">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="480"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0ZT-Zm-wkr" id="Vaq-bi-Cqj">
@@ -177,13 +184,13 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmK-b3-Dyb">
-                                                    <rect key="frame" x="20" y="246" width="63" height="17"/>
+                                                    <rect key="frame" x="20" y="246" width="374" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="556-Al-c4f" userLabel="Details Label">
-                                                    <rect key="frame" x="20" y="283" width="374" height="50.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="556-Al-c4f" userLabel="Details Label">
+                                                    <rect key="frame" x="20" y="283" width="374" height="186"/>
                                                     <string key="text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum </string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -198,11 +205,20 @@
                                                 <constraint firstItem="tjU-9z-8UE" firstAttribute="leading" secondItem="Vaq-bi-Cqj" secondAttribute="leadingMargin" id="KpT-eH-rjK"/>
                                                 <constraint firstItem="6ue-ot-RwX" firstAttribute="centerY" secondItem="tjU-9z-8UE" secondAttribute="centerY" id="QfP-Zh-gwU"/>
                                                 <constraint firstItem="556-Al-c4f" firstAttribute="top" secondItem="pmK-b3-Dyb" secondAttribute="bottom" constant="20" id="Y2T-Y1-ZXO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pmK-b3-Dyb" secondAttribute="trailing" id="e4v-sn-VFR"/>
                                                 <constraint firstItem="tjU-9z-8UE" firstAttribute="top" secondItem="Vaq-bi-Cqj" secondAttribute="topMargin" id="hyw-iX-bfc"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6ue-ot-RwX" secondAttribute="trailing" id="qGl-jI-JWg"/>
                                                 <constraint firstItem="6ue-ot-RwX" firstAttribute="leading" secondItem="tjU-9z-8UE" secondAttribute="trailing" constant="20" id="qQt-Q0-kSq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="556-Al-c4f" secondAttribute="bottom" id="vTb-mH-1fC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailGenresLabel" destination="jVi-Nj-b0Q" id="AWM-l9-qu3"/>
+                                            <outlet property="detailImageView" destination="tjU-9z-8UE" id="n2w-pL-FBC"/>
+                                            <outlet property="detailOverviewLabel" destination="556-Al-c4f" id="52j-hx-lp5"/>
+                                            <outlet property="detailRatingsLabel" destination="tZb-H3-iGh" id="czP-ro-S89"/>
+                                            <outlet property="detailTitleLabel" destination="SGF-z6-A3P" id="nfM-Sj-2mi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -217,6 +233,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Xk2-w3-vQm"/>
+                    <connections>
+                        <outlet property="detailsTableView" destination="dTd-9v-2MQ" id="6ke-cl-Z27"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kPU-HN-ogZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
