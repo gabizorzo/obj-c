@@ -14,7 +14,6 @@
 #define POPULAR_URL @"https://api.themoviedb.org/3/movie/popular?api_key=%@"
 #define GENRE_URL @"https://api.themoviedb.org/3/genre/movie/list?api_key=%@"
 #define DETAILS_URL @"https://api.themoviedb.org/3/movie/%@?api_key=%@"
-#define SEARCH_URL @"https://api.themoviedb.org/3/search/movie?api_key=%@&query=%@"
 
 @implementation MovieAPI
 // MARK: - Fetch Movie Details
