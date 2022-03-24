@@ -17,6 +17,7 @@
 
 @implementation DetailsViewController
 
+// MARK: - View did load
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -24,6 +25,7 @@
     self.detailsTableView.dataSource = self;
 }
 
+// MARK: - Cell for row at
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailsTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"DetailCell" forIndexPath:indexPath];
 
@@ -36,6 +38,7 @@
     return cell;
 }
 
+// MARK: - Number of sections
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }

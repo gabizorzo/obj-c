@@ -12,6 +12,11 @@
 
 @implementation Parser
 
+// MARK: - Movie List from JSON
+/* Responsible for getting the movie list from the JSON with each movie properties.
+    Enter: NSData
+    Returns: NSArray
+ */
 +(NSArray*)movieListFromJSON:(NSData*) json error:(NSError**) error {
     NSError *errorBuffer = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:json options:0 error:&errorBuffer];
@@ -51,6 +56,11 @@
     return movies;
 }
 
+// MARK: - Details for Movie
+/* Responsible for getting the genres details for a movie.
+    Enter: Movie
+    Returns: Void
+ */
 +(void)detailsForMovie:(Movie*) movie from:(NSData*) json error:(NSError**) error {
     NSError *errorBuffer = nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:json options:0 error:&errorBuffer];

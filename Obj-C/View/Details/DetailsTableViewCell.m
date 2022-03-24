@@ -19,6 +19,7 @@
     [super setSelected:selected animated:animated];
 }
 
+// MARK: - Set movie
 - (void)setMovie:(Movie *)movie {
     [self.detailTitleLabel setText:movie.title];
     [self.detailOverviewLabel setText:movie.overview];
