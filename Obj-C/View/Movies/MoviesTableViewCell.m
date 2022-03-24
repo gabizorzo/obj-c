@@ -19,6 +19,7 @@
     [super setSelected:selected animated:animated];
 }
 
+// MARK: - Populate Cell with Movie
 - (void)populateCellWithMovie:(Movie *) movie {
     [self.movieTitleLabel setText:movie.title];
     [self.movieOverviewLabel setText:movie.overview];

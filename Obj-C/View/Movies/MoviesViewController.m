@@ -26,6 +26,7 @@
 
 @implementation MoviesViewController
 
+// MARK: - View did load
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -38,6 +39,7 @@
     self.moviesTableView.dataSource = self;
 }
 
+// MARK: - Prepare for Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     DetailsViewController* detailsVC = [segue destinationViewController];
     
@@ -47,11 +49,15 @@
     }
 }
 
+// MARK: - Fetched Failed with Error
+/* From MovieAPIDelegate */
 - (void)fetchedFailedWithError:(nonnull NSError *)error {
     NSLog(@"-XXX- FETCH FAILED");
     NSLog(@"%@", error.localizedDescription);
 }
 
+// MARK: - Received Movie List
+/* From MovieAPIDelegate */
 - (void)receivedMovieList:(nonnull NSData *)json from:(FetchOption) option {
     NSLog(@"%@", json.description);
     
@@ -85,6 +91,8 @@
     });
 }
 
+// MARK: - Received Movie Details
+/* From MovieAPIDelegate */
 - (void)receivedMovieDetails:(nonnull NSData *)json for:(nonnull Movie *)movie {
     NSError* error = nil;
     
@@ -101,6 +109,7 @@
     });
 }
 
+// MARK: - Cell for row at
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MoviesTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
@@ -127,6 +136,7 @@
     return cell;
 }
 
+// MARK: -  Height for row at
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 148;
 }
@@ -145,6 +155,7 @@
     }
 }
 
+// MARK: - Did select row at
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Movie* movie;
     
@@ -169,14 +180,17 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+// MARK: - Number os sections
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
 
+// MARK: - Height for header
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 22;
 }
 
+// MARK: - View for header
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView* header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 22)];
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, tableView.frame.size.width, 22)];
